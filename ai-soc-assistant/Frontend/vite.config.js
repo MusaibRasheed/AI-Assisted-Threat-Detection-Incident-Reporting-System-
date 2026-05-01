@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'https://ai-assisted-threat-detection-incident.onrender.com',
         changeOrigin: true,
         ws: true,          // also proxy WebSocket connections (ws://localhost:5173/api/ws/alerts)
       },
