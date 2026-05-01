@@ -3,4 +3,4 @@ uvicorn
 pydantic
 google-generativeai
 requests
-python-multipartcd
+python-multipart
