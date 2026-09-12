@@ -5,13 +5,13 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class WazuhClient:
-    def __init__(self, protocol="https", host="127.0.0.1", port="55000", indexer_port="9200", user="wazuh-wui", password="MyS3cr37P450r.*-", idx_user="admin", idx_password="SecretPassword"):
-        self.base_url = f"{protocol}://{host}:{port}"
-        self.indexer_url = f"{protocol}://{host}:{indexer_port}"
-        self.user = user
-        self.password = password
-        self.idx_user = idx_user
-        self.idx_password = idx_password
+    def __init__(self, protocol=None, host=None, port=None, indexer_port=None, user=None, password=None, idx_user=None, idx_password=None):
+        self.base_url = f"{protocol or os.getenv('WAZUH_PROTOCOL', 'https')}://{host or os.getenv('WAZUH_HOST', '127.0.0.1')}:{port or os.getenv('WAZUH_PORT', '55000')}"
+        self.indexer_url = f"{protocol or os.getenv('WAZUH_PROTOCOL', 'https')}://{host or os.getenv('WAZUH_HOST', '127.0.0.1')}:{indexer_port or os.getenv('WAZUH_INDEXER_PORT', '9200')}"
+        self.user = user or os.getenv("WAZUH_USER", "wazuh-wui")
+        self.password = password or os.getenv("WAZUH_PASSWORD", "")
+        self.idx_user = idx_user or os.getenv("WAZUH_IDX_USER", "admin")
+        self.idx_password = idx_password or os.getenv("WAZUH_IDX_PASSWORD", "")
         self.token = None
 
     def _authenticate(self):
