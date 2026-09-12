@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://ai-assisted-threat-detection-incident.onrender.com';
+axios.defaults.baseURL = 'https://ai-assisted-threat-detection-incident-pb5x.onrender.com';
 import { 
   Search, Shield, Activity, Terminal, CheckCircle2, AlertTriangle, 
   Settings, Users, Box, Zap, ArrowUpRight, ArrowDownRight,
@@ -34,7 +34,7 @@ function App() {
 
   // Global WebSocket for proactive alerts
   useEffect(() => {
-    const ws = new WebSocket('wss://ai-assisted-threat-detection-incident.onrender.com/api/ws/alerts');
+    const ws = new WebSocket('wss://ai-assisted-threat-detection-incident-pb5x.onrender.com/api/ws/alerts');
     ws.onmessage = (event) => {
        try {
            const data = JSON.parse(event.data);

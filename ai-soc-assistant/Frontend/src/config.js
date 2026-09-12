@@ -1,3 +1,3 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://ai-assisted-threat-detection-incident.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://ai-assisted-threat-detection-incident-pb5x.onrender.com';
 
 export default API_BASE_URL;
